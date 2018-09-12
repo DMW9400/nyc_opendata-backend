@@ -1,5 +1,7 @@
 require 'curb'
 require 'json'
+
+require './geojson.rb'
 #
 # class Fetch
 #   def fetch_attempt
@@ -21,4 +23,4 @@ parsed.each do |item|
   borough_array
 end
 
-puts borough_array
+puts Coordinates::GeoJSON
