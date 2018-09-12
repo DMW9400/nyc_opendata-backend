@@ -15,8 +15,8 @@ parsed = JSON.parse(http.body_str)
 borough_array = []
 
 parsed.each do |item|
-  if !borough_array.include?(item["geo_entity_name"])
-    borough_array.push(item["geo_entity_name"])
+  if item["geo_type_name"] == 'UHF42'
+    borough_array.push(item)
   end
   borough_array
 end
