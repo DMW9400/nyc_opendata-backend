@@ -10,7 +10,7 @@ require './geojson.rb'
 #   end
 # end
 
-http = Curl.get("https://data.cityofnewyork.us/resource/ah89-62h9.json?$$app_token=LUEOzBK6IUAyZVp7zYDxuvZht")
+http = Curl.get("https://data.cityofnewyork.us/resource/ah89-62h9.json?$$app_token=")
 
 parsed = JSON.parse(http.body_str)
 
@@ -23,4 +23,6 @@ parsed.each do |item|
   borough_array
 end
 
-puts Coordinates::GeoJSON
+puts borough_array
+
+# puts Coordinates::GeoJSON

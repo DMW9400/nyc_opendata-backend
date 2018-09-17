@@ -1,5 +1,7 @@
+require 'pry'
+
 module Coordinates
-  GeoJSON = '{
+  GeoJSON = {
   type: "FeatureCollection",
   features: [
   {
@@ -67346,5 +67348,7 @@ module Coordinates
   }
   }
   ]
-  }'
+  }
+  binding.pry
+
 end
