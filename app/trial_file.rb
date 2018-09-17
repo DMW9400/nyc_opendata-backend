@@ -10,7 +10,7 @@ require './geojson.rb'
 #   end
 # end
 
-http = Curl.get("https://data.cityofnewyork.us/resource/ah89-62h9.json?$$app_token=")
+http = Curl.get("https://data.cityofnewyork.us/resource/ah89-62h9.json?$$app_token=#{your token here}")
 
 parsed = JSON.parse(http.body_str)
 
