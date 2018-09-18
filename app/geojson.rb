@@ -67347,8 +67347,8 @@ module Coordinates
   uhfcode: 503
   }
   }
+  # end this area object
   ]
   }
-  binding.pry
 
 end
