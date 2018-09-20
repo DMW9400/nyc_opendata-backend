@@ -5,7 +5,7 @@ require './geojson.rb'
 #
 # class Fetch
 #   def fetch_attempt
-#     http = Curl.get("https://data.cityofnewyork.us/resource/6aka-uima.json?$$app_token=LUEOzBK6IUAyZVp7zYDxuvZht")
+#     http = Curl.get("https://data.cityofnewyork.us/resource/6aka-uima.json?$$app_token=")
 #     puts http.body_str
 #   end
 # end
