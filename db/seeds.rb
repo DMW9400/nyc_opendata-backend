@@ -10,7 +10,7 @@ uhf42_metrics = []
 parsed.each do |item|
   if item["geo_type_name"] == 'UHF42'
     # uhf42_metrics.push(item)
-    Metric.create(name: item["name"], measure: item[""])
+    # Metric.create(name: item["name"], measure: item[""])
     puts item["name"]
   end
 end

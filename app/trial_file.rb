@@ -2,6 +2,30 @@ require 'curb'
 require 'json'
 
 require './geojson.rb'
+
+Coordinates::GeoJSON[:features].each do |jsonRegion|
+  return_obj = {}
+  return_obj[:uhf_neigh] = jsonRegion[:properties][:uhf_neigh]
+  return_obj[:uhf_code] = jsonRegion[:properties][:uhfcode]
+  return_obj[:geoJSON] = jsonRegion
+
+  puts return_obj
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #
 # class Fetch
 #   def fetch_attempt
@@ -24,12 +48,3 @@ require './geojson.rb'
 # end
 #
 # puts borough_array
-
-Coordinates::GeoJSON[:features].each do |thing|
-  return_obj = {}
-  return_obj[:uhf_neigh] = thing[:properties][:uhf_neigh]
-  return_obj[:uhf_code] = thing[:properties][:uhfcode]
-  return_obj[:geoJSON] = thing
-  # puts 'this thing'
-  puts return_obj
-end
