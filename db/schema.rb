@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20180917174908) do
     t.string "measure"
     t.string "data_value"
     t.string "year"
+    t.integer "region_code"
+    t.integer "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
