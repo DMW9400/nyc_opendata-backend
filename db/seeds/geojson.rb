@@ -1,5 +1,3 @@
-require 'pry'
-
 module Coordinates
   GeoJSON = {
     type: "FeatureCollection",

@@ -1,9 +1,15 @@
 require 'curb'
 require 'json'
-require '../app/data/nyc_metrics.rb'
+
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each do |seed|
+  load seed
+end
+
+puts Coordinates::GeoJSON
 
 http = Curl.get("https://data.cityofnewyork.us/resource/ah89-62h9.json?$$app_token=LUEOzBK6IUAyZVp7zYDxuvZht")
 parsed = JSON.parse(http.body_str)
+
 
 
 parsed.each do |item|
