@@ -19,16 +19,16 @@ geo_array.each do |geo_item|
 end
 
 UHF_Metrics::Borough_Array.each do |metric|
-  metric_id = metric["geo_entity_id"]
+  found_region_id = nil
+  metric_id = metric["geo_entity_id"].to_i
   Region.all.each do |region|
-    puts  region.uhf_code
     # puts `metric id: #{metric["geo_entity_id"]}, region id: #{region.uhf_code}`
-    if region.uhf_code == metric["geo_entity_id"]
-      return 'MATCH'
+    if region.uhf_code == metric_id
+      found_region_id = region.id
+      puts 'MATCH', region.id
     end
   end
-  # puts found_region_id
-  # Metric.create(name: metric["name"], measure: metric["measure"], data_value: metric["data_valuemessage"], year: metric["year_description"], region_code: metric["geo_entity_id"], region_id: found_region_id )
+  Metric.create(name: metric["name"], measure: metric["measure"], data_value: metric["data_valuemessage"], year: metric["year_description"], region_code: metric["geo_entity_id"], region_id: found_region_id )
 end
 
 
