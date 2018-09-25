@@ -1,7 +1,7 @@
 class RegionsController < ApplicationController
 
   def index
-        artists = Region.all
+        regions = Region.all
         render json: regions, status: 200
   end
 
