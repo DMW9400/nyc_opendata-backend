@@ -22,10 +22,8 @@ UHF_Metrics::Borough_Array.each do |metric|
   found_region_id = nil
   metric_id = metric["geo_entity_id"].to_i
   Region.all.each do |region|
-    # puts `metric id: #{metric["geo_entity_id"]}, region id: #{region.uhf_code}`
     if region.uhf_code == metric_id
       found_region_id = region.id
-      puts 'MATCH', region.id
     end
   end
   Metric.create(name: metric["name"], measure: metric["measure"], data_value: metric["data_valuemessage"], year: metric["year_description"], region_code: metric["geo_entity_id"], region_id: found_region_id )
