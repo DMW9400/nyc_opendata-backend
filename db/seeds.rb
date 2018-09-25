@@ -18,6 +18,16 @@ geo_array.each do |geo_item|
   Region.create(name: geo_item[:uhf_neigh], uhf_code: geo_item[:uhf_code], geoJSON: geo_item[:geoJSON])
 end
 
+UHF_Metrics::Borough_Array.each do |metric|
+  found_region_id = nil
+  Region.all.each do |region|
+    if region.uhf_code == metric["geo_entity_id"]
+      found_region_id = region.id
+    end
+  end
+  Metric.create(name: metric["name"], measure: metric["measure"], data_value: metric["data_valuemessage"], year: metric["year_description"], region_code: metric["geo_entity_id"], region_id: found_region_id )
+end
+
 
 # puts Coordinates::GeoJSON
 # puts UHF_Metrics::Parsed
