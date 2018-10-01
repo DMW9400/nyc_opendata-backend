@@ -1,4 +1,5 @@
 
+require 'json'
 
 Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each do |seed|
   load seed
@@ -10,7 +11,7 @@ Coordinates::GeoJSON[:features].each do |jsonRegion|
   return_obj = {}
   return_obj[:uhf_neigh] = jsonRegion[:properties][:uhf_neigh]
   return_obj[:uhf_code] = jsonRegion[:properties][:uhfcode]
-  return_obj[:geoJSON] = jsonRegion
+  return_obj[:geoJSON] = jsonRegion.to_json
   geo_array.push(return_obj)
 end
 
